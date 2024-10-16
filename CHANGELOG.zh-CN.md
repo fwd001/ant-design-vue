@@ -10,6 +10,15 @@
 
 ---
 
+## 4.2.5
+
+- 🐞 修复 Empty 组件内存泄漏问题
+- 🐞 修复 Image width & height 属性不生效问题
+
+## 4.2.4
+
+- 🐞 修复 Wave 内存泄漏问题
+
 ## 4.2.3
 
 - 🌟 TourStep 自定义 Button，支持函数 children [#7628](https://github.com/vueComponent/ant-design-vue/pull/7628)
