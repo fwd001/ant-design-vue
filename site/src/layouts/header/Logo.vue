@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts">
-import type { GlobalConfig } from '../../App.vue';
+import type { GlobalConfig } from '../../type';
 import { GLOBAL_CONFIG } from '../../SymbolKey';
 import { defineComponent, inject } from 'vue';
 import logo from '../../assets/logo.svg';

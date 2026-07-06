@@ -74,7 +74,7 @@
   </section>
 </template>
 <script lang="ts">
-import type { GlobalConfig } from '../App.vue';
+import type { GlobalConfig } from '../type';
 import { computed, defineComponent, inject, onMounted, ref } from 'vue';
 import { SearchOutlined } from '@ant-design/icons-vue';
 import { GLOBAL_CONFIG } from '../SymbolKey';
@@ -107,21 +107,9 @@ export default defineComponent({
               cols: 1,
               cover: 'https://gw.alipayobjects.com/zos/alicdn/f-SbcX2Lx/Table.svg',
               coverDark: 'https://gw.alipayobjects.com/zos/alicdn/f-SbcX2Lx/Table.svg',
-              path: 'https://surely.cool/',
+              path: 'https://surelyvue.com/',
               subtitle: '更强大的表格',
               title: 'Surely Table',
-              type: 'Advanced And Powerful',
-              target: '_blank',
-            },
-            {
-              category: 'Components',
-              cols: 1,
-              cover: 'https://aliyuncdn.antdv.com/form/static/assets/landing-config.4f9d5425.png',
-              coverDark:
-                'https://aliyuncdn.antdv.com/form/static/assets/landing-config.4f9d5425.png',
-              path: 'https://form.antdv.com/',
-              subtitle: '在线表单',
-              title: 'Surely Form',
               type: 'Advanced And Powerful',
               target: '_blank',
             },

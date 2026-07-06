@@ -1,4 +1,4 @@
-blank_issues_enabled: false
+blank_issues_enabled: true
 contact_links:
   - name: Create new issue
     url: https://vuecomponent.github.io/issue-helper/
@@ -12,6 +12,3 @@ contact_links:
   - name: Paypal
     url: https://www.paypal.me/tangjinzhou
     about: Love Ant Design Vue? Please consider supporting us via Paypal.
-  - name: 支付宝/微信 赞助
-    url: https://aliyuncdn.antdv.com/alipay-and-wechat.png
-    about: Ant Design Vue 的健康持续发展需要您的支持，🙏

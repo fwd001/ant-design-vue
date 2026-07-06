@@ -103,7 +103,7 @@
 </template>
 
 <script lang="ts">
-import type { GlobalConfig } from '../App.vue';
+import type { GlobalConfig } from '../type';
 import { GLOBAL_CONFIG } from '../SymbolKey';
 import { computed, defineComponent, inject, onMounted, ref } from 'vue';
 import { CheckOutlined, SnippetsOutlined, CodeSandboxOutlined } from '@ant-design/icons-vue';

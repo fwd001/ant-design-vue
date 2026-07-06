@@ -1,4 +1,5 @@
 <template>
+  <TopAd :is-c-n="isZhCN" />
   <Header />
   <div v-if="headers.length" class="toc-affix" :style="y > 102 ? 'position:fixed; top: 16px;' : ''">
     <a-anchor style="width: 160px" :items="headers">
@@ -7,6 +8,12 @@
         {{ item.title }}
       </template>
     </a-anchor>
+    <a v-if="isAdVisible" :href="'https://mentorbook.ai'" target="_blank" style="">
+      <img
+        :src="isZhCN ? '/MPU_176x250_bf_zh.svg' : '/MPU_176x250_bf_en.svg'"
+        style="width: 152px; display: block; margin-top: 16px"
+      />
+    </a>
   </div>
   <div class="main-wrapper">
     <a-row>
@@ -43,8 +50,6 @@
       </template>
       <a-col :xxxl="20" :xxl="20" :xl="19" :lg="18" :md="18" :sm="24" :xs="24">
         <section :class="mainContainerClass">
-          <WWAdsVue v-if="isZhCN" />
-          <TopAd v-else />
           <Demo v-if="isDemo" :page-data="pageData" :is-zh-c-n="isZhCN">
             <component :is="matchCom" />
           </Demo>
@@ -85,22 +90,6 @@
             </template>
           </a-float-button>
         </a-float-button-group>
-        <!-- <div class="fixed-widgets" :style="isZhCN ? { bottom: '175px' } : {}">
-          <a-dropdown placement="top">
-            <template #overlay>
-              <a-menu
-                :selected-keys="[themeMode.theme.value]"
-                @click="({ key }) => themeMode.changeTheme(key)"
-              >
-                <a-menu-item key="default">{{ $t('app.theme.switch.default') }}</a-menu-item>
-                <a-menu-item key="dark">{{ $t('app.theme.switch.dark') }}</a-menu-item>
-              </a-menu>
-            </template>
-            <a-avatar class="fixed-widgets-avatar" :size="44">
-              <template #icon><ThemeIcon /></template>
-            </a-avatar>
-          </a-dropdown>
-        </div> -->
         <PrevAndNext :menus="menus" :current-menu-index="currentMenuIndex" :is-zh-c-n="isZhCN" />
         <Footer />
       </a-col>
@@ -108,7 +97,6 @@
   </div>
 </template>
 <script lang="ts">
-import type { GlobalConfig } from '../App.vue';
 import { GLOBAL_CONFIG } from '../SymbolKey';
 import { defineComponent, inject, computed, ref, provide, watch } from 'vue';
 import { useRoute } from 'vue-router';
@@ -129,6 +117,7 @@ import CompactIcon from './icons/Compact';
 import surelyVueVue from '../components/surelyVue.vue';
 import WWAdsVue from '../components/rice/WWAds.vue';
 import { useWindowScroll } from '@vueuse/core';
+import type { GlobalConfig } from '../type';
 
 const rControl = /[\u0000-\u001f]/g;
 const rSpecial = /[\s~`!@#$%^&*()\-_+=[\]{}|\\;:"'<>,.?/]+/g;
@@ -227,25 +216,25 @@ export default defineComponent({
               {
                 title: '大数据渲染',
                 enTitle: 'Virtualized Table',
-                href: 'https://surely.cool/doc/performance',
+                href: 'https://surelyvue.com/doc/performance',
                 target: '_blank',
               },
               {
                 title: '行拖拽排序',
                 enTitle: 'Row Drag Sort',
-                href: 'https://surely.cool/doc/dragable#drag-row',
+                href: 'https://surelyvue.com/doc/dragable#drag-row',
                 target: '_blank',
               },
               {
                 title: '列拖拽排序',
                 enTitle: 'Column Drag Sort',
-                href: 'https://surely.cool/doc/dragable#drag-column',
+                href: 'https://surelyvue.com/doc/dragable#drag-column',
                 target: '_blank',
               },
               {
                 title: '更多高性能示例',
                 enTitle: 'More high-performance examples ',
-                href: 'https://surely.cool',
+                href: 'https://surelyvue.com',
                 target: '_blank',
               },
             ],
@@ -268,6 +257,12 @@ export default defineComponent({
         'main-container-component': isDemo.value,
       };
     });
+    const isAdVisible = computed(() => {
+      const now = new Date();
+      const startDate = new Date('2025-11-24T00:00:00');
+      const endDate = new Date('2025-11-30T23:59:59');
+      return now >= startDate && now <= endDate;
+    });
     const handleClickShowButton = () => {
       visible.value = !visible.value;
     };
@@ -286,6 +281,7 @@ export default defineComponent({
       pageData,
       dataSource,
       handleClickShowButton,
+      isAdVisible,
       iconStyle: {
         // color: '#fff',
         fontSize: '20px',

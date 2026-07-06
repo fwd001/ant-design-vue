@@ -18,7 +18,7 @@
 <script lang="ts">
 import { computed, defineComponent, inject } from 'vue';
 import { DownOutlined } from '@ant-design/icons-vue';
-import type { GlobalConfig } from '../../App.vue';
+import type { GlobalConfig } from '../../type';
 import { GLOBAL_CONFIG } from '../../SymbolKey';
 import { getLocalizedPathname } from '../../utils/util';
 import Ecosystem from './Ecosystem.vue';

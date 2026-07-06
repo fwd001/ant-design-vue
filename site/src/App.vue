@@ -10,7 +10,6 @@
 
 <script lang="ts">
 import { computed, defineComponent, provide, watch, ref } from 'vue';
-import type { Ref } from 'vue';
 import { useRoute } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 import useMediaQuery from './hooks/useMediaQuery';
@@ -21,16 +20,11 @@ import dayjs from 'dayjs';
 import 'dayjs/locale/zh-cn';
 import { theme as antdTheme } from 'ant-design-vue';
 import SiteToken from './SiteToken.vue';
+import type { GlobalConfig } from './type';
 function isZhCN(name: string) {
   return /-cn\/?$/.test(name);
 }
-export interface GlobalConfig {
-  isMobile: Ref<boolean>;
-  lang: Ref<'zh-CN' | 'en-US'>;
-  isZhCN: Ref<boolean>;
-  responsive: Ref<null | 'narrow' | 'crowded'>;
-  blocked: Ref<boolean>;
-}
+
 export type ThemeName = '' | 'light' | 'dark' | 'compact';
 const getAlgorithm = (themes: ThemeName[] = []) =>
   themes
